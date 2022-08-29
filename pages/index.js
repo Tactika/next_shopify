@@ -1,19 +1,20 @@
-import { getProductsInCollection } from '../lib/shopify'
-import ProductList from '../components/ProductList'
-import styles from '../styles/Home.module.css'
+import { getProductsInCollection } from "../lib/shopify";
+import ProductList from "../components/ProductList";
+import styles from "../styles/Home.module.css";
 
-export default function Home({products}) {
-  console.log(products)
+export default function Home({ products }) {
+  console.log(products);
   return (
     <>
-    <ProductList products={products} />
+      <ProductList products={products} />
     </>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const products = await getProductsInCollection()
+  const products = await getProductsInCollection();
+
   return {
-    props: {products}
-  }
+    props: { products },
+  };
 }
