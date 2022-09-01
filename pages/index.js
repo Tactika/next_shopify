@@ -9,8 +9,8 @@ export default function Home({ products }) {
     <div className="">
       <Head>
         <title>Shopify eCommerce Store</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="description" content="Modern eCommerce Store for purchasing heavy equipment, built using Next.js, Shopify, and TailwindCSS."/>
         <meta property="og:title" content="Shopify eCommerce Store" />
         <meta property="og:type" content="website" />
