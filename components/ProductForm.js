@@ -4,11 +4,8 @@ import ProductOptions from "./ProductOptions";
 import { CartContext } from "../context/shopContext";
 
 function ProductForm({ product }) {
-  //   console.log("Product:", product);
-
   const { addToCart } = useContext(CartContext);
 
-  // console.log(CartContext);
   const allVariantOptions = product.variants.edges?.map((variant) => {
     const allOptions = {};
 
@@ -36,9 +33,6 @@ function ProductForm({ product }) {
   const [selectedVariant, setSelectedVariant] = useState(allVariantOptions[0]);
   const [selectedOptions, setSelectedOptions] = useState(defaultValues);
 
-  //   console.log("defaultValues", defaultValues);
-  //   console.log("allVariantOptions", allVariantOptions);
-
   function setOptions(name, value) {
     setSelectedOptions((prevState) => {
       return { ...prevState, [name]: value };
@@ -58,7 +52,7 @@ function ProductForm({ product }) {
   return (
     <div className="rounded-2xl p-4 shadow-lg flex flex-col w-full md:w-1/3">
       <h2 className="text-2xl font-bold">{product.title}</h2>
-      <span className="pb-6">
+      <span className="pb-3">
         {formatter.format(product.variants.edges[0].node.priceV2.amount)}
       </span>
       {product.options.map(({ name, values }) => (
@@ -74,7 +68,7 @@ function ProductForm({ product }) {
         onClick={() => {
           addToCart(selectedVariant);
         }}
-        className="bg-black rounded-lg text-white px-2 py-3 hover:bg-grey-800"
+        className="bg-black rounded-lg mt-3 text-white px-2 py-3 hover:bg-grey-800"
       >
         Add To Cart
       </button>
