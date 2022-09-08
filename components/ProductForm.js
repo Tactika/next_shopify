@@ -101,7 +101,7 @@ function ProductForm({ product }) {
       onClick={() => {
         addToCart(selectedVariant);
       }}
-      className="bg-black rounded-lg mt-3 text-white px-2 py-3 hover:bg-grey-800"
+      className="bg-black rounded-lg mt-3 text-white px-2 py-3 hover:bg-orange-400"
     >
       Add To Cart
     </button>

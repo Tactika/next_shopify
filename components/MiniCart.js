@@ -64,7 +64,7 @@ export default function MiniCart({ cart }) {
                           <button
                             ref={cancelButtonRef}
                             type="button"
-                            className="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                            className="-m-2 p-2 text-gray-400 hover:text-orange-400"
                             onClick={() => setCartOpen(false)}
                           >
                             <span className="sr-only">Close panel</span>
@@ -128,7 +128,7 @@ export default function MiniCart({ cart }) {
                                             removeCartItem(product.id);
                                           }}
                                           type="button"
-                                          className="font-medium text-grey-500 hover:text-grey-800"
+                                          className="font-medium text-grey-500 hover:text-orange-400"
                                         >
                                           Remove
                                         </button>
@@ -158,7 +158,7 @@ export default function MiniCart({ cart }) {
                         <div className="mt-6">
                           <a
                             href={checkoutUrl}
-                            className="flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-grey-800"
+                            className="flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-orange-400"
                           >
                             Checkout
                           </a>
@@ -168,7 +168,7 @@ export default function MiniCart({ cart }) {
                             or
                             <button
                               type="button"
-                              className="font-medium hover:text-grey-800"
+                              className="font-medium hover:text-orange-400"
                               onClick={() => setCartOpen(false)}
                             >
                               Continue Shopping
