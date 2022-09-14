@@ -95,7 +95,6 @@ function ProductForm({ product }) {
           setOptions={setOptions}
         />
       ))}
-
       {available ?
         <button
           onClick={() => {
@@ -112,7 +111,6 @@ function ProductForm({ product }) {
           Sold Out!
         </button>
       }
-
     </div>
   );
 }
