@@ -14,10 +14,10 @@ const fetcher = (url, id) => (
 )
 
 function ProductForm({ product }) {
-  const {data: productInventory} = useSWR(
+  const { data: productInventory } = useSWR(
     ['/api/available', product.handle],
     (url, id) => fetcher(url, id),
-    {errorRetryCount: 3}
+    { errorRetryCount: 3 }
   )
 
   const [available, setAvailable] = useState(true)
@@ -69,22 +69,22 @@ function ProductForm({ product }) {
   }
 
   useEffect(() => {
-    if(productInventory) {
-      const checkAvailable = productInventory?.variants.edges.filter(item =>item.node.id ===selectedVariant.id)
+    if (productInventory) {
+      const checkAvailable = productInventory?.variants.edges.filter(item => item.node.id === selectedVariant.id)
 
-      if(checkAvailable[0].node.availableForSale) {
+      if (checkAvailable[0].node.availableForSale) {
         setAvailable(true)
       } else {
         setAvailable(false)
       }
     }
   }, [productInventory, selectedVariant])
-  
+
   return (
     <div className="rounded-2xl p-4 shadow-lg flex flex-col w-full md:w-1/3">
       <h2 className="text-2xl font-bold">{product.title}</h2>
       <span className="pb-3">
-        {formatter.format(product.variants.edges[0].node.priceV2.amount)}
+        {formatter.format(selectedVariant.variantPrice)}
       </span>
       {product.options.map(({ name, values }) => (
         <ProductOptions
@@ -96,23 +96,23 @@ function ProductForm({ product }) {
         />
       ))}
 
-      { available ?
-      <button
-      onClick={() => {
-        addToCart(selectedVariant);
-      }}
-      className="bg-black rounded-lg mt-3 text-white px-2 py-3 hover:bg-grey-800"
-    >
-      Add To Cart
-    </button>
-    :
-    <button
-      className="rounded-lg mt-3 text-white px-2 py-3 bg-gray-800 cursor-not-allowed"
-    >
-      Sold Out!
-    </button>
-    }
-      
+      {available ?
+        <button
+          onClick={() => {
+            addToCart(selectedVariant);
+          }}
+          className="bg-black rounded-lg mt-3 text-white px-2 py-3 hover:bg-orange-400"
+        >
+          Add To Cart
+        </button>
+        :
+        <button
+          className="rounded-lg mt-3 text-white px-2 py-3 bg-gray-800 cursor-not-allowed"
+        >
+          Sold Out!
+        </button>
+      }
+
     </div>
   );
 }
