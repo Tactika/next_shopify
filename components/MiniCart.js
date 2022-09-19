@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function MiniCart({ cart }) {
   const cancelButtonRef = useRef();
 
-  const { cartOpen, setCartOpen, checkoutUrl, removeCartItem } =
+  const { cartOpen, setCartOpen, checkoutUrl, removeCartItem, addToItemInCart, removeFromItemInCart } =
     useContext(CartContext);
 
   let cartTotal = 0;
@@ -109,7 +109,7 @@ export default function MiniCart({ cart }) {
                                         <p className="ml-4">
                                           {formatter.format(
                                             product.variantPrice *
-                                              product.variantQuantity
+                                            product.variantQuantity
                                           )}
                                         </p>
                                       </div>
@@ -118,9 +118,11 @@ export default function MiniCart({ cart }) {
                                       </p>
                                     </div>
                                     <div className="flex flex-1 items-end justify-between text-sm">
+                                      <button onClick={() => { removeFromItemInCart(product.id) }} type="button" className="font-medium text-grey-500 hover:text-orange-400"> - </button>
                                       <p className="text-gray-500">
                                         Qty {product.variantQuantity}
                                       </p>
+                                      <button onClick={() => { addToItemInCart(product.id) }} type="button" className="font-medium text-grey-500 hover:text-orange-400"> + </button>
 
                                       <div className="flex">
                                         <button

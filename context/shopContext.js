@@ -76,6 +76,35 @@ function ShopProvider({ children }) {
       setCartOpen(false);
     }
   }
+
+  async function addToItemInCart(itemToAddOne) {
+    const newCart = [...cart]
+    const itemIndex = newCart.findIndex(variant => variant.id === itemToAddOne)
+
+    newCart[itemIndex].variantQuantity += 1
+
+    setCart(newCart)
+
+    const newCheckout = await updateCheckout(checkoutId, newCart)
+    localStorage.setItem('checkout_id', JSON.stringify([newCart, newCheckout]))
+  }
+
+  async function removeFromItemInCart(itemToRemoveOne) {
+    const newCart = [...cart]
+    const itemIndex = newCart.findIndex(variant => variant.id === itemToRemoveOne)
+
+    if (newCart[itemIndex].variantQuantity > 1) {
+      newCart[itemIndex].variantQuantity -= 1;
+
+      setCart(newCart);
+      const newCheckout = await updateCheckout(checkoutId, newCart)
+      localStorage.setItem('checkout_id', JSON.stringify([newCart, newCheckout]))
+
+    } else {
+      removeCartItem(itemToRemoveOne);
+    }
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -85,6 +114,8 @@ function ShopProvider({ children }) {
         addToCart,
         checkoutUrl,
         removeCartItem,
+        addToItemInCart,
+        removeFromItemInCart
       }}
     >
       {children}
