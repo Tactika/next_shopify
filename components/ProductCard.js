@@ -3,32 +3,32 @@ import Image from "next/image"
 import { formatter } from "../utils/helpers"
 
 const ProductCard = ({ product }) => {
-    const {handle, title} =  product.node
-    const {altText, originalSrc} = product.node.images.edges[0].node
+    const { handle, title } = product.node
+    const { altText, originalSrc } = product.node.images.edges[0].node
     const price = product.node.priceRange.minVariantPrice.amount
 
 
-  return (
-    <Link
-        href={`/products/${handle}`}>
-        <a className="group">
-            <div className="w-full bg-gray-200 rounded-3xl overflow-hidden">
-                <div className="relative group-hover:opacity-75 h-72">
-                    <Image
-                        src={originalSrc}
-                        alt={altText}
-                        layout="fill"
-                        objectFit="cover"
+    return (
+        <Link
+            href={`/products/${handle}`}>
+            <a className="group hover:text-orange-400">
+                <div className="w-full bg-gray-200 rounded-3xl overflow-hidden hover:border-orange-400 hover:border-2 box-border">
+                    <div className="relative group-hover:opacity-75 h-72">
+                        <Image
+                            src={originalSrc}
+                            alt={altText}
+                            layout="fill"
+                            objectFit="cover"
                         />
+                    </div>
                 </div>
-            </div>
-            <h3 className="mt-4 text-lg font-medium text-grey-900">
-                {title}
-            </h3>
-            <p className="mt-1 text-small text-gray-700">{formatter.format(price)}</p>
-        </a>
-    </Link>
-  )
+                <h3 className="mt-4 text-lg font-medium hover:text-orange-400">
+                    {title}
+                </h3>
+                <p className="mt-1 text-small text-gray-700">{formatter.format(price)}</p>
+            </a>
+        </Link>
+    )
 }
 
 export default ProductCard

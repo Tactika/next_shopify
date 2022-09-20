@@ -7,7 +7,7 @@ const navigation = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-600">
+    <footer className="bg-neutral-700">
       <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
         <nav className="flex flex-wrap justify-center">
           {navigation.map((item, index) => (

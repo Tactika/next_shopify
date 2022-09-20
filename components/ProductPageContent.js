@@ -24,7 +24,7 @@ function ProductPageContent({ product }) {
   return (
     <div>
       <div className="flex flex-col justify-center items-center space-y-8 md:flex-row md:items-start md:space-y-0 md:">
-        <div className="w-full max-w-md border bg-white rounded-2xl overflow-hidden shadow-lg md:w-1/2">
+        <div className="w-full max-w-md border bg-neutral-700 rounded-2xl overflow-hidden shadow-lg md:w-1/2">
           <div className="relative h-96 w-full">
             <Swiper
               style={{
@@ -42,7 +42,7 @@ function ProductPageContent({ product }) {
         </div>
         <ProductForm product={product} />
       </div>
-      <p className="pt-16 space-y-8 md:space-x-4 lg:space-x-8 max-w-3xl w-11/12 mx-auto">
+      <p className="pt-16 space-y-8 md:space-x-4 lg:space-x-8 max-w-3xl w-11/12 mx-auto text-neutral-300">
         {product.description}
       </p>
       <RecommendedList
