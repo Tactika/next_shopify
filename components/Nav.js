@@ -15,15 +15,15 @@ function Nav() {
   });
 
   return (
-    <header className="border-b sticky top-0 z-20 bg-gray-600">
+    <header className="border-b sticky top-0 z-20 bg-neutral-700 border-transparent">
       <div className="flex items-center justify-between max-w-6xl pt-4 pb-2 px-4 mx-auto lg:max-w-screen-xl">
         <Link href="/" passHref>
           <a className="cursor-pointer">
-            <Image src="/JoBox Tool Co-logos.jpeg" alt="JoBox Tool Company Logo" height="50px" width="100%"/>
+            <Image src="/JoBox Tool Co-logo.jpeg" alt="JoBox Tool Company Logo" height="50px" width="100%" />
           </a>
         </Link>
         <a
-          className="text-md font-bold cursor-pointer"
+          className="text-md font-bold cursor-pointer text-orange-400"
           onClick={() => {
             setCartOpen(!cartOpen);
           }}

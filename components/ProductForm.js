@@ -82,8 +82,8 @@ function ProductForm({ product }) {
 
   return (
     <div className="rounded-2xl p-4 shadow-lg flex flex-col w-full md:w-1/3">
-      <h2 className="text-2xl font-bold">{product.title}</h2>
-      <span className="pb-3">
+      <h2 className="text-2xl font-bold text-orange-400">{product.title}</h2>
+      <span className="pb-3 pt-3 text-xl text-red-500">
         {formatter.format(selectedVariant.variantPrice)}
       </span>
       {product.options.map(({ name, values }) => (
@@ -100,7 +100,7 @@ function ProductForm({ product }) {
           onClick={() => {
             addToCart(selectedVariant);
           }}
-          className="bg-black rounded-lg mt-3 text-white px-2 py-3 hover:bg-orange-400"
+          className="bg-orange-400 rounded-lg mt-3 text-white px-2 py-3 hover:bg-orange-400 hover:border-2 hover:border-neutral-300 hover:text-neutral-800 hover:font-bold"
         >
           Add To Cart
         </button>

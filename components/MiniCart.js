@@ -173,7 +173,7 @@ export default function MiniCart({ cart }) {
                               className="font-medium hover:text-orange-400"
                               onClick={() => setCartOpen(false)}
                             >
-                              Continue Shopping
+                              &nbsp; Continue Shopping
                               <span aria-hidden="true"> &rarr;</span>
                             </button>
                           </p>
